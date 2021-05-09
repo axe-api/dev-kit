@@ -13,7 +13,8 @@
   "dependencies": {
     "axe-api": "file:./../axe-api/",
     "dotenv": "^9.0.1",
-    "knex": "^0.95.4"
+    "knex": "^0.95.4",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.16",
