@@ -3,8 +3,8 @@ import { Model, hasMany } from "axe-api";
 class User extends Model {
   get fillable() {
     return {
-      POST: ["email", "name", "surname", "age"],
-      PUT: ["name", "surname", "age"],
+      POST: ["email", "name"],
+      PUT: ["name"],
     };
   }
 
