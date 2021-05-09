@@ -1,4 +1,4 @@
-exports.up = function (knex) {
+export const up = function (knex) {
   return knex.schema.createTable("users", function (table) {
     table.increments();
     table.string("name");
@@ -7,4 +7,4 @@ exports.up = function (knex) {
   });
 };
 
-exports.down = function (knex) {};
+export const down = function (knex) {};

@@ -12,7 +12,6 @@ class Post extends Model {
   get validations() {
     return {
       title: "required|max:100",
-      content: "required",
     };
   }
 
