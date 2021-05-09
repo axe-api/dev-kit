@@ -1,4 +1,4 @@
-import { Model, hasMany } from "axe-api";
+import { Model } from "axe-api";
 
 class User extends Model {
   get fillable() {
@@ -8,8 +8,8 @@ class User extends Model {
     };
   }
 
-  get relations() {
-    return [hasMany("Post")];
+  posts() {
+    return this.hasMany("Post");
   }
 }
 

@@ -1,4 +1,4 @@
-import { Model, hasOne } from "axe-api";
+import { Model } from "axe-api";
 
 class Post extends Model {
   get table() {
@@ -16,8 +16,8 @@ class Post extends Model {
     };
   }
 
-  get relations() {
-    return [hasOne("User"), hasOne("Admin"), hasOne("X1")];
+  user() {
+    return this.hasOne("User");
   }
 }
 
