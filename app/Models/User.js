@@ -8,8 +8,21 @@ class User extends Model {
     };
   }
 
-  posts() {
-    return this.hasMany("Post");
+  get validations() {
+    return {
+      POST: {
+        email: "required|email",
+        name: "required",
+      },
+    };
+  }
+
+  myPosts() {
+    return this.hasMany("Post", "id", "user_id");
+  }
+
+  otherPosts() {
+    return this.hasMany("Post", "id", "user_id");
   }
 }
 

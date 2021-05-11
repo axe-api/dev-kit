@@ -5,7 +5,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nodemon --watch . --watch ./../axe-api/ --exec babel-node index.js",
+    "start": "node index.js",
+    "start:dev": "nodemon --watch . --watch ./../axe-api/ --exec babel-node index.js",
     "migrate:up": "knex --esm migrate:up",
     "test": "jest",
     "test:dev": "jest --watch"

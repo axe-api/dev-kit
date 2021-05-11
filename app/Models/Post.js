@@ -16,7 +16,11 @@ class Post extends Model {
   }
 
   user() {
-    return this.hasOne("User");
+    return this.belongsTo("User", "user_id", "id");
+  }
+
+  comments() {
+    return this.hasMany("Comment", "id", "post_id");
   }
 }
 
