@@ -1,4 +1,4 @@
-import { onBeforeCreate } from "./SubscriptionActions";
+import { onBeforeCreate } from "./UserActions";
 
 describe("onBeforeCreate", () => {
   test("should be able to add timestamps", async () => {

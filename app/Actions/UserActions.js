@@ -6,4 +6,16 @@ const onBeforeCreate = async ({ formData }) => {
   // throw new ApiError(406, "Olmadı beybi!");
 };
 
+const x = {
+  onBeforeAll: null,
+  onAfterAll: null,
+
+  paginate: {
+    onBefore: null,
+    onBeforeCreate: null,
+    onAfterCreate: null,
+    onAfter: null,
+  },
+};
+
 export { onBeforeCreate };
