@@ -14,7 +14,7 @@ class Category extends Model {
   }
 
   category() {
-    return this.hasOne("Category");
+    return this.belongsTo("Category");
   }
 }
 
