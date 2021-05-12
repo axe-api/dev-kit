@@ -29,7 +29,6 @@ class User extends Model {
       },
       isAdmin,
       (req, res, next) => {
-        console.log("inline");
         next();
       },
     ];
