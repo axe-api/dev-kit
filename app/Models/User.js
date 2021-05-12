@@ -1,5 +1,4 @@
-import { Model, API_FEATURES } from "axe-api";
-const { BULK_INSERT, COUNT, BULK_UPDATE } = API_FEATURES;
+import { Model } from "axe-api";
 
 class User extends Model {
   get fillable() {
@@ -16,10 +15,6 @@ class User extends Model {
         name: "required",
       },
     };
-  }
-
-  get actions() {
-    return [...super.actions, BULK_INSERT, COUNT, BULK_UPDATE];
   }
 
   myPosts() {

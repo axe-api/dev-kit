@@ -1,4 +1,4 @@
-import { onBeforeCreate } from "./UserActions";
+import { onBeforeCreate } from "./UserHooks";
 
 describe("onBeforeCreate", () => {
   test("should be able to add timestamps", async () => {
