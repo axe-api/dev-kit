@@ -1,7 +1,7 @@
 import { Model } from "axe-api";
 import { CAPABILITIES } from "axe-api";
-import isLogged from "./../Middlewares/isLogged.js";
-import isAdmin from "./../Middlewares/isAdmin.js";
+import { isAdmin, isLogged } from "./../Middlewares/User/index.js";
+import general from "./../Middlewares/general.js";
 
 class User extends Model {
   get fillable() {
@@ -22,12 +22,14 @@ class User extends Model {
 
   get middlewares() {
     return [
+      general,
       {
         capability: CAPABILITIES.PAGINATE,
         middleware: isLogged,
       },
       isAdmin,
       (req, res, next) => {
+        console.log("inline");
         next();
       },
     ];
