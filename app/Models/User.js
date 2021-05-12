@@ -1,4 +1,7 @@
 import { Model } from "axe-api";
+import { CAPABILITIES } from "axe-api";
+import isLogged from "./../Middlewares/isLogged.js";
+import isAdmin from "./../Middlewares/isAdmin.js";
 
 class User extends Model {
   get fillable() {
@@ -15,6 +18,19 @@ class User extends Model {
         name: "required",
       },
     };
+  }
+
+  get middlewares() {
+    return [
+      {
+        capability: CAPABILITIES.PAGINATE,
+        middleware: isLogged,
+      },
+      isAdmin,
+      (req, res, next) => {
+        next();
+      },
+    ];
   }
 
   myPosts() {
