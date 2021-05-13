@@ -1,14 +1,13 @@
-import { Model, hasMany } from "axe-api";
+import { Model } from "axe-api";
+import { CAPABILITIES } from "axe-api";
+import { isAdmin, isLogged } from "./../Middlewares/User/index.js";
+import general from "./../Middlewares/general.js";
 
 class User extends Model {
-  get table() {
-    return "users";
-  }
-
   get fillable() {
     return {
-      POST: ["email", "name", "surname", "age"],
-      PUT: ["name", "surname", "age"],
+      POST: ["email", "name"],
+      PUT: ["name"],
     };
   }
 
@@ -16,20 +15,31 @@ class User extends Model {
     return {
       POST: {
         email: "required|email",
-        name: "required|max:50",
-      },
-      PUT: {
-        name: "required|max:50",
+        name: "required",
       },
     };
   }
 
-  get relations() {
-    return [hasMany("Post")];
+  get middlewares() {
+    return [
+      general,
+      {
+        capability: CAPABILITIES.PAGINATE,
+        middleware: isLogged,
+      },
+      isAdmin,
+      (req, res, next) => {
+        next();
+      },
+    ];
   }
 
-  get actions() {
-    return ["GET", "POST", "PUT", "DELETE"];
+  myPosts() {
+    return this.hasMany("Post", "id", "user_id");
+  }
+
+  otherPosts() {
+    return this.hasMany("Post", "id", "user_id");
   }
 }
 

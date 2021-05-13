@@ -1,4 +1,4 @@
-import { Model, hasOne } from "axe-api";
+import { Model } from "axe-api";
 
 class Post extends Model {
   get table() {
@@ -12,12 +12,15 @@ class Post extends Model {
   get validations() {
     return {
       title: "required|max:100",
-      content: "required",
     };
   }
 
-  get relations() {
-    return [hasOne("User"), hasOne("Admin"), hasOne("X1")];
+  user() {
+    return this.belongsTo("User", "user_id", "id");
+  }
+
+  comments() {
+    return this.hasMany("Comment", "id", "post_id");
   }
 }
 
