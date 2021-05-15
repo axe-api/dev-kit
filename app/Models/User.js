@@ -1,5 +1,5 @@
 import { Model } from "axe-api";
-import { CAPABILITIES } from "axe-api";
+import { HANDLERS } from "axe-api";
 import { isAdmin, isLogged } from "./../Middlewares/User/index.js";
 import general from "./../Middlewares/general.js";
 
@@ -24,7 +24,7 @@ class User extends Model {
     return [
       general,
       {
-        capability: CAPABILITIES.PAGINATE,
+        handler: HANDLERS.PAGINATE,
         middleware: isLogged,
       },
       isAdmin,
