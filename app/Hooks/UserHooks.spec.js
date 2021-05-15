@@ -1,12 +1,12 @@
-import { onBeforeCreate } from "./UserHooks";
+import { onBeforeInsert } from "./UserHooks";
 
-describe("onBeforeCreate", () => {
+describe("onBeforeInsert", () => {
   test("should be able to add timestamps", async () => {
     const formData = {
       name: "Ozzy",
       created_at: null,
     };
-    await onBeforeCreate({ formData });
+    await onBeforeInsert({ formData });
     expect(formData.created_at).not.toBe(null);
   });
 });

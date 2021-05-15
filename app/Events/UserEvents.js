@@ -1,5 +1,5 @@
-const onAfterCreate = async ({ item }) => {
-  // console.log("onAfterCreate", item);
+const onAfterInsert = async ({ item }) => {
+  // console.log("onAfterInsert", item);
 };
 
-export { onAfterCreate };
+export { onAfterInsert };
