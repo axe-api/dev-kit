@@ -8,7 +8,7 @@
     "start": "node index.js",
     "start:dev": "nodemon --watch . --watch ./../axe-api/ --exec babel-node index.js",
     "migrate:up": "knex --esm migrate:up",
-    "test": "jest",
+    "test": "jest --runInBand --colors",
     "test:dev": "jest --watch"
   },
   "dependencies": {
