@@ -21,24 +21,10 @@ class User extends Model {
   }
 
   get middlewares() {
-    return [
-      general,
-      {
-        handler: HANDLERS.PAGINATE,
-        middleware: isLogged,
-      },
-      isAdmin,
-      (req, res, next) => {
-        next();
-      },
-    ];
+    return [];
   }
 
-  myPosts() {
-    return this.hasMany("Post", "id", "user_id");
-  }
-
-  otherPosts() {
+  posts() {
     return this.hasMany("Post", "id", "user_id");
   }
 }
