@@ -15,6 +15,13 @@ class Post extends Model {
     };
   }
 
+  serialize(item) {
+    return {
+      ...item,
+      upperCase: item.title ? item.title.toUpperCase() : "",
+    };
+  }
+
   user() {
     return this.belongsTo("User", "user_id", "id");
   }

@@ -24,8 +24,23 @@ class User extends Model {
     return [];
   }
 
+  get hiddens() {
+    return ["email"];
+  }
+
+  serialize(item) {
+    return {
+      ...item,
+      receiver: `${item.name} <${item.email ? item.email : ""}>`,
+    };
+  }
+
   posts() {
     return this.hasMany("Post", "id", "user_id");
+  }
+
+  links() {
+    return this.hasMany("Link", "id", "user_id");
   }
 }
 
