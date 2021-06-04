@@ -1,7 +1,4 @@
 import { Model } from "axe-api";
-import { HANDLERS } from "axe-api";
-import { isAdmin, isLogged } from "./../Middlewares/User/index.js";
-import general from "./../Middlewares/general.js";
 
 class User extends Model {
   get fillable() {
@@ -22,17 +19,6 @@ class User extends Model {
 
   get middlewares() {
     return [];
-  }
-
-  get hiddens() {
-    return ["email"];
-  }
-
-  serialize(item) {
-    return {
-      ...item,
-      receiver: `${item.name} <${item.email ? item.email : ""}>`,
-    };
   }
 
   posts() {
