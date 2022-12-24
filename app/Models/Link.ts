@@ -1,15 +1,15 @@
 import { Model } from "axe-api";
 
 class Link extends Model {
-  get primaryKey() {
+  get primaryKey(): string {
     return "uuid";
   }
 
-  get fillable() {
+  get fillable(): string[] {
     return ["url"];
   }
 
-  get validations() {
+  get validations(): Record<string, string> {
     return {
       url: "required",
     };

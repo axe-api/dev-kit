@@ -1,7 +1,6 @@
-import dotenv from "dotenv";
-dotenv.config();
+import { IDatabaseConfig } from "axe-api";
 
-module.exports = {
+const config: IDatabaseConfig = {
   client: process.env.DB_CLIENT || "mysql",
   connection: {
     host: process.env.DB_HOST || "localhost",
@@ -17,3 +16,5 @@ module.exports = {
     tableName: "knex_migrations",
   },
 };
+
+export default config;

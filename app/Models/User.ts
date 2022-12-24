@@ -1,14 +1,14 @@
-import { Model } from "axe-api";
+import { IMethodBaseConfig, IMethodBaseValidations, Model } from "axe-api";
 
 class User extends Model {
-  get fillable() {
+  get fillable(): IMethodBaseConfig {
     return {
       POST: ["email", "name"],
       PUT: ["name"],
     };
   }
 
-  get validations() {
+  get validations(): IMethodBaseValidations {
     return {
       POST: {
         email: "required|email",
