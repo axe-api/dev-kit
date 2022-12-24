@@ -1,21 +1,21 @@
 import { Model } from "axe-api";
 
 class Post extends Model {
-  get table() {
+  get table(): string {
     return "posts";
   }
 
-  get fillable() {
+  get fillable(): string[] {
     return ["title", "content"];
   }
 
-  get validations() {
+  get validations(): Record<string, string> {
     return {
       title: "required|max:100",
     };
   }
 
-  serialize(item) {
+  serialize(item: any) {
     return {
       ...item,
       upperCase: item.title ? item.title.toUpperCase() : "",
