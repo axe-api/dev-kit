@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node ./build/index.js",
     "start:dev": "ts-node-dev --respawn --clear index.ts",
+    "build": "rm -rf build && tsc",
+    "postbuild": "sh scripts/postbuild.sh",
     "migrate:up": "knex --esm migrate:up",
     "test": "jest --runInBand --colors",
     "test:dev": "jest --watch"
