@@ -1,4 +1,4 @@
-import { IHookParameter } from "axe-api";
+import { IHookParameter } from "../../../index";
 
 const onAfterInsert = async ({ item }: IHookParameter) => {
   // console.log("onAfterInsert", item);

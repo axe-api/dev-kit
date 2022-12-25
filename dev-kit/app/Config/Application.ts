@@ -1,4 +1,4 @@
-import { LogLevels, IApplicationConfig } from "axe-api";
+import { LogLevels, IApplicationConfig } from "../../../index";
 
 const config: IApplicationConfig = {
   prefix: "api",

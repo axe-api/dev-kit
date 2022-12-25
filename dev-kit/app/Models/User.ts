@@ -1,10 +1,14 @@
-import { IMethodBaseConfig, IMethodBaseValidations, Model } from "axe-api";
+import {
+  IMethodBaseConfig,
+  IMethodBaseValidations,
+  Model,
+} from "../../../index";
 
 class User extends Model {
   get fillable(): IMethodBaseConfig {
     return {
-      POST: ["email", "name"],
-      PUT: ["name"],
+      POST: ["email", "name", "surname"],
+      PUT: ["name", "surname"],
     };
   }
 
@@ -13,20 +17,13 @@ class User extends Model {
       POST: {
         email: "required|email",
         name: "required",
+        surname: "required",
       },
     };
   }
 
   get middlewares() {
     return [];
-  }
-
-  posts() {
-    return this.hasMany("Post", "id", "user_id");
-  }
-
-  links() {
-    return this.hasMany("Link", "id", "user_id");
   }
 }
 

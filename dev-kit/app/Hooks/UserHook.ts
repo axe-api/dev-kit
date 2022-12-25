@@ -1,4 +1,4 @@
-import { IoCService, IHookParameter } from "axe-api";
+import { IoCService, IHookParameter } from "../../../index";
 
 const onBeforeInsert = async ({ formData }: IHookParameter) => {
   // const mailer = await IoCService.use("Mailer");
