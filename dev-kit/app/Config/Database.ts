@@ -1,4 +1,5 @@
-import { IDatabaseConfig } from "axe-api";
+import path from "path";
+import { IDatabaseConfig } from "../../../index";
 
 const config: IDatabaseConfig = {
   client: process.env.DB_CLIENT || "mysql",
@@ -7,6 +8,7 @@ const config: IDatabaseConfig = {
     user: process.env.DB_USER || "user",
     password: process.env.DB_PASSWORD || "password",
     database: process.env.DB_DATABASE || "database",
+    filename: path.join(__dirname, "..", "..", "mydb.sqlite"),
   },
   pool: {
     min: 2,
