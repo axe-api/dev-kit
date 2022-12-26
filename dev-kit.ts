@@ -6,7 +6,7 @@ import { Server } from "./index";
 logger.bgColor("yellow").color("black").log("Axe API dev-kit (1.0.0)");
 logger
   .color("blue")
-  .log("Docs: https://axe-api.github.io/contribution/fundamentals.html \n");
+  .log("Docs: https://axe-api.com/contribution/fundamentals.html \n");
 
 dotenv.config();
 

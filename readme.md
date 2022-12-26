@@ -4,7 +4,7 @@ This repository is the developed for the developers who wants to contribute to t
 
 ## Installation
 
-You can use the [documentation](https://axe-api.github.io/development/getting-started.html)
+You can use the [documentation](https://axe-api.com/development/getting-started.html)
 
 ## License
 
