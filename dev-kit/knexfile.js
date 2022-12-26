@@ -1,8 +1,8 @@
 import dotenv from "dotenv";
-dotenv.config();
+dotenv.config({ path: "../.env" });
 
 module.exports = {
-  client: "sqlite3",
+  client: process.env.DB_CLIENT || "sqlite3",
   connection: {
     host: process.env.DB_HOST || "localhost",
     user: process.env.DB_USER || "user",
