@@ -37,7 +37,7 @@ jobs:
   #       run: cd axe-api && timeout 10 npm run dev-kit || [[ $? -eq 124 ]]
 
   archlinux:
-    runs-on: archlinux:latest
+    runs-on: archlinux
     strategy:
       matrix:
         node-version: [18.x]
