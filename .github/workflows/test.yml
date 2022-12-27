@@ -7,34 +7,34 @@ on:
       - develop
 
 jobs:
-  ubuntu:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 17.x, 18.x]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Clone the axe-api repository
-        run: git clone https://github.com/axe-api/axe-api.git
-      - name: Setting the dev-kit files
-        run: cp -R .env dev-kit.ts dev-kit axe-api/
-      - name: Installing the dependencies
-        run: |
-          cd axe-api
-          npm install --production=false
-          npm install -g typescript
-          npm i -g ts-node-dev
-          npm i -g knex
-      - name: DB migration
-        run: |
-          cd axe-api/dev-kit
-          knex --esm migrate:latest
-      - name: Run the application
-        run: cd axe-api && timeout 10 npm run dev-kit || [[ $? -eq 124 ]]
+  # ubuntu:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: [14.x, 16.x, 17.x, 18.x]
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #     - name: Clone the axe-api repository
+  #       run: git clone https://github.com/axe-api/axe-api.git
+  #     - name: Setting the dev-kit files
+  #       run: cp -R .env dev-kit.ts dev-kit axe-api/
+  #     - name: Installing the dependencies
+  #       run: |
+  #         cd axe-api
+  #         npm install --production=false
+  #         npm install -g typescript
+  #         npm i -g ts-node-dev
+  #         npm i -g knex
+  #     - name: DB migration
+  #       run: |
+  #         cd axe-api/dev-kit
+  #         knex --esm migrate:latest
+  #     - name: Run the application
+  #       run: cd axe-api && timeout 10 npm run dev-kit || [[ $? -eq 124 ]]
 
   archlinux:
     runs-on: archlinux:latest
