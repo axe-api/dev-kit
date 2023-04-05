@@ -2,7 +2,7 @@ import {
   IMethodBaseConfig,
   IMethodBaseValidations,
   Model,
-} from from "../../../../index";
+} from "../../../../index";
 
 class User extends Model {
   get fillable(): IMethodBaseConfig {
