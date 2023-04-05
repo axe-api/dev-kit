@@ -1,11 +1,10 @@
 import path from "path";
-import { LogLevels, IApplicationConfig, Frameworks } from "../../index";
+import { LogLevels, IApplicationConfig } from "../../index";
 
 const config: IApplicationConfig = {
   prefix: "api",
   env: process.env.NODE_ENV || "production",
   port: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
-  framework: Frameworks.Express,
   logLevel: LogLevels.INFO,
   database: {
     client: process.env.DB_CLIENT || "mysql",
