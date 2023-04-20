@@ -13,7 +13,7 @@ const config: IApplicationConfig = {
       user: process.env.DB_USER || "user",
       password: process.env.DB_PASSWORD || "password",
       database: process.env.DB_DATABASE || "database",
-      filename: path.join(__dirname, "..", "..", "mydb.sqlite"),
+      filename: path.join(__dirname, "..", "mydb.sqlite"),
     },
     pool: {
       min: 2,
