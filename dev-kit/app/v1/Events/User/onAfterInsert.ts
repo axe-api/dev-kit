@@ -1,5 +1,5 @@
-import { IHookParameter } from "../../../../../index";
+import { IContext } from "../../../../../index";
 
-export default async ({ item }: IHookParameter) => {
-  // console.log("onAfterInsert", item);
+export default async ({ item }: IContext) => {
+  // todo
 };

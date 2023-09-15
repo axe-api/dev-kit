@@ -1,11 +1,9 @@
-import { Express } from "express";
-import ErrorHandler from "./Handlers/ErrorHandler";
+import { App } from "../../../index";
 
-const onBeforeInit = async (app: Express) => {};
+const onBeforeInit = async (app: App) => {};
 
-const onAfterInit = async (app: Express) => {
+const onAfterInit = async (app: App) => {
   // Set global error handler.
-  app.use(ErrorHandler);
 };
 
 export { onBeforeInit, onAfterInit };
