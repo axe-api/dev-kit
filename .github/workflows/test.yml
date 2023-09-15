@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 17.x, 18.x]
+        node-version: [18.x]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -25,6 +25,8 @@ jobs:
       - name: Installing the dependencies
         run: |
           cd axe-api
+          git checkout -b playground
+          git pull origin playground
           npm install --production=false
           npm install -g typescript
           npm i -g ts-node-dev
@@ -34,4 +36,7 @@ jobs:
           cd axe-api/dev-kit
           knex --esm migrate:latest
       - name: Run the application
-        run: cd axe-api && timeout 10 npm run dev-kit || [[ $? -eq 124 ]]
+        run: |
+          set -e
+          cd axe-api
+          timeout 10 npm run dev-kit || [[ $? -eq 124 ]]
