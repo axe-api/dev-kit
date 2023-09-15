@@ -13,6 +13,7 @@ const config: IVersionConfig = {
       maxPerPage: 100,
     },
   },
+  formidable: {},
 };
 
 export default config;

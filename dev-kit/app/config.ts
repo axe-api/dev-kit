@@ -1,11 +1,25 @@
 import path from "path";
-import { LogLevels, IApplicationConfig } from "../../index";
+import { IApplicationConfig } from "../../index";
 
 const config: IApplicationConfig = {
   prefix: "api",
   env: process.env.NODE_ENV || "production",
   port: process.env.APP_PORT ? parseInt(process.env.APP_PORT) : 3000,
-  logLevel: LogLevels.INFO,
+  pino: {
+    level: "debug",
+    transport: {
+      target: "pino-pretty",
+    },
+  },
+  rateLimit: {
+    enabled: false,
+    adaptor: {
+      type: "memory",
+    },
+    maxRequests: 200,
+    windowInSeconds: 5,
+    trustProxyIP: false,
+  },
   database: {
     client: process.env.DB_CLIENT || "mysql",
     connection: {

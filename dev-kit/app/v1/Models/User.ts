@@ -1,30 +1,5 @@
-import {
-  IMethodBaseConfig,
-  IMethodBaseValidations,
-  Model,
-} from "../../../../index";
+import { Model } from "../../../../index";
 
-class User extends Model {
-  get fillable(): IMethodBaseConfig {
-    return {
-      POST: ["email", "name", "surname"],
-      PUT: ["name", "surname"],
-    };
-  }
-
-  get validations(): IMethodBaseValidations {
-    return {
-      POST: {
-        email: "required|email",
-        name: "required",
-        surname: "required",
-      },
-    };
-  }
-
-  get middlewares() {
-    return [];
-  }
-}
+class User extends Model {}
 
 export default User;
