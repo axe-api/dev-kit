@@ -1,4 +1,3 @@
-import logger from "node-color-log";
 import dotenv from "dotenv";
 import path from "path";
 import { Server } from "./index";
